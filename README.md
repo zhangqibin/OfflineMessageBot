@@ -1,5 +1,5 @@
 # OfflineMessageBot
-Offline message bot for tox/tok client
+Offline message bot for Tok
 
 #### How to build?
     Support mac and linux, We work on centos7 (3.10.0-327.el7.x86_64) and mac (mojave 10.14.4) well.
@@ -28,7 +28,7 @@ $cd c-toxcore && checkout dev
 $mkdir build && cd build
 $cmake .. && make -j && make install
 ```
-    More detail about install toxcore: https://github.com/InsightIM/c-toxcore/blob/master/INSTALL.md
+    More details about install toxcore: https://github.com/InsightIM/c-toxcore/blob/master/INSTALL.md
 
 ###### install boost
 ```

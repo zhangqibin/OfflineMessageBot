@@ -1,3 +1,4 @@
+/****************************************************************************
 MIT License
 
 Copyright (c) 2019 TOK
@@ -19,3 +20,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+****************************************************************************/
+#ifndef __UTIL_H__
+#define __UTIL_H__
+
+#include <string>
+#include <boost/algorithm/string.hpp>
+#include <tox/tox.h>
+#include <sodium.h>
+
+using namespace std;
+
+class Util {
+public:
+    Util();
+
+    static string get_pk_by_id(Tox *tox, uint32_t friend_id);
+
+    static int get_id_by_pk(Tox *tox, string pk);
+
+    ~Util();
+};
+
+#endif

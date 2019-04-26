@@ -1,3 +1,4 @@
+/****************************************************************************
 MIT License
 
 Copyright (c) 2019 TOK
@@ -19,3 +20,46 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+****************************************************************************/
+/*
+ * some operator about toxcore bot
+ */
+#ifndef __BOT_H
+#define __BOT_H
+
+#include <tox/tox.h>
+#include <string>
+
+using namespace std;
+
+class Conf;
+
+class Bot {
+
+public:
+    Bot();
+
+    static Tox *create_tox();
+
+    virtual ~Bot();
+
+    static void print_debug_log(Tox *m, TOX_LOG_LEVEL level, const char *path, uint32_t line, const char *func,
+                                const char *message, void *user_data);
+
+    static const char *tox_log_level_name(TOX_LOG_LEVEL level);
+
+    static void bootstrap(Tox *tox);
+
+    static void set_name(Tox *tox, string name);
+
+    static void set_status_message(Tox *tox, string status_message);
+
+    static void print_tox_id(Tox *tox);
+
+    static void register_function(Tox *tox);
+
+private:
+
+};
+
+#endif //__BOT_H

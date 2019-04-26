@@ -1,3 +1,4 @@
+/****************************************************************************
 MIT License
 
 Copyright (c) 2019 TOK
@@ -19,3 +20,37 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+****************************************************************************/
+#ifndef __OFFLINE_MESSAGE_MODEL_H
+#define __OFFLINE_MESSAGE_MODEL_H
+
+#include "db_conn.h"
+#include "logger.h"
+#include <vector>
+
+class OfflineMessage;
+
+class OfflineMessageModel {
+public:
+    OfflineMessageModel();
+
+    int add(const std::string &fr_pk,
+            const std::string &to_pk,
+            const std::string &content,
+            uint64_t local_msg_id,
+            uint64_t create_time
+    );
+
+    int del(const std::string &pk, uint64_t msg_id);
+
+    uint64_t get_latest_id(const std::string &pk);
+
+    uint32_t get_count(const std::string &pk);
+
+    void get_list(const std::string &pk, std::vector<OfflineMessage *> &vec, uint32_t limit = 10);
+
+    virtual ~OfflineMessageModel();
+};
+
+extern OfflineMessageModel offline_message_model;
+#endif //__OFFLINE_MESSAGE_MODEL_H
